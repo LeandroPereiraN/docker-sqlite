@@ -39,3 +39,8 @@ Los archivos en `bd/` se ejecutan en orden lexicográfico:
 1. `00_DROP-Tables.sql` limpia cualquier tabla previa respetando dependencias.
 2. `01_DDL-*.sql` a `09_DDL-*.sql` definen la estructura.
 3. `10_DML-Usuarios.sql` inserta datos de ejemplo.
+
+
+## En caso de problemas de formato
+
+Ejecutar `dos2unix scripts/init-sqlite.sh`
