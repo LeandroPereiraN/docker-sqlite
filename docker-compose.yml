@@ -1,0 +1,16 @@
+services:
+  sqlite:
+    image: keinos/sqlite3:latest
+    container_name: sqlite_db
+    entrypoint: ["/bin/sh", "/usr/local/bin/init-sqlite.sh"]
+    restart: unless-stopped
+    user: "0:0"
+    environment:
+      - SQLITE_DB_PATH=/root/db/database.db
+    volumes:
+      - sqlite_data:/root/db
+      - ./bd:/docker-entrypoint-initdb.d:ro
+      - ./scripts/init-sqlite.sh:/usr/local/bin/init-sqlite.sh:ro
+
+volumes:
+  sqlite_data:
