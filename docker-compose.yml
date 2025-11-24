@@ -8,9 +8,6 @@ services:
     environment:
       - SQLITE_DB_PATH=/root/db/database.db
     volumes:
-      - sqlite_data:/root/db
+      - ./sqlite:/root/db
       - ./bd:/docker-entrypoint-initdb.d:ro
       - ./scripts/init-sqlite.sh:/usr/local/bin/init-sqlite.sh:ro
-
-volumes:
-  sqlite_data:

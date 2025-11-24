@@ -20,6 +20,10 @@ export default fp<FastifySwaggerOptions>(async (fastify) => {
       ],
       tags: [
         { name: "root", description: "Operaciones generales de la API" },
+        {
+          name: "users",
+          description: "Operaciones relacionadas con los usuarios",
+        },
       ],
       components: {
         schemas: {
@@ -29,10 +33,10 @@ export default fp<FastifySwaggerOptions>(async (fastify) => {
               statusCode: { type: "number" },
               error: { type: "string" },
               message: { type: "string" },
-              appCode: { type: "string" }
-            }
-          }
-        }
+              appCode: { type: "string" },
+            },
+          },
+        },
       },
       externalDocs: {
         url: "https://swagger.io",
