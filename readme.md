@@ -1,6 +1,6 @@
 # Ejercicio 17
 
-## Levantar el contenedor utilizando docker compose
+## Levantar el contenedor de producción utilizando docker compose
 
 ```bash
 docker compose up -d
@@ -24,13 +24,7 @@ Comandos útiles dentro de la consola de `sqlite3`:
 
 Por defecto, si el archivo `/root/db/database.db` ya existe, el script de inicio no vuelve a ejecutar los SQL (evita sobrescribir datos).
 
-**Puedes eliminar el volumen manualmente**
-
-```bash
-docker compose down
-docker volume rm ejercicio17_sqlite_data
-docker compose up -d
-```
+**Puedes eliminar el volumen removiendo el archivo database.db que se encuentra en la carpeta sqlite.**
 
 ## Estructura de scripts
 
@@ -40,6 +34,9 @@ Los archivos en `bd/` se ejecutan en orden lexicográfico:
 2. `01_DDL-*.sql` a `09_DDL-*.sql` definen la estructura.
 3. `10_DML-Usuarios.sql` inserta datos de ejemplo.
 
+## Documentación de la API
+
+La documentación se encuentra en `http://localhost:3000/docs`.
 
 ## En caso de problemas de formato
 

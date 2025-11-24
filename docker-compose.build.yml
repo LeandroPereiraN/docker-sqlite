@@ -15,7 +15,9 @@ services:
       - crud_net
 
   crud_backend:
-    image: leandropereiran/crud_backend:latest
+    build:
+      context: ./api
+      dockerfile: Dockerfile
     container_name: crud_backend
     environment:
       NODE_ENV: production

@@ -1,5 +1,5 @@
-import { createDBConnection } from "../db/db.ts";
-import type { UserType } from "../models/user_model.ts";
+import { createDBConnection } from "../db/db.js";
+import type { UserType } from "../models/user_model.js";
 
 export class UserService {
   static async getAllUsers() {

@@ -2,8 +2,8 @@ import {
   Type,
   type FastifyPluginAsyncTypebox,
 } from "@fastify/type-provider-typebox";
-import { User } from "../models/user_model.ts";
-import { UserService } from "../services/user_services.ts";
+import { User } from "../models/user_model.js";
+import { UserService } from "../services/user_services.js";
 
 const rootRoutes: FastifyPluginAsyncTypebox = async (fastify) => {
   fastify.get(
