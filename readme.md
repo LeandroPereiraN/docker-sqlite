@@ -6,12 +6,12 @@
 docker compose up -d
 ```
 
-El contenedor `sqlite_db` se levanta y ejecuta el script `scripts/init-sqlite.sh` que automáticamente ejecuta todos los archivos `.sql` que encuentre en `bd/` en orden alfabético.
+El contenedor `crud_sqlite` se levanta y ejecuta el script `scripts/init-sqlite.sh` que automáticamente ejecuta todos los archivos `.sql` que encuentre en `bd/` en orden alfabético.
 
 ## Conectarse a la base
 
 ```bash
-docker compose exec -u root sqlite_db sqlite3 root/db/database.db
+docker compose exec -u root crud_sqlite sqlite3 root/db/database.db
 ```
 
 Comandos útiles dentro de la consola de `sqlite3`:
@@ -24,11 +24,11 @@ Comandos útiles dentro de la consola de `sqlite3`:
 
 Por defecto, si el archivo `/root/db/database.db` ya existe, el script de inicio no vuelve a ejecutar los SQL (evita sobrescribir datos).
 
-**Puedes eliminar el volumen removiendo el archivo database.db que se encuentra en la carpeta sqlite.**
+**Puedes eliminar el volumen removiendo el archivo `database.db` que se encuentra en la carpeta `sqlite`.**
 
 ## Estructura de scripts
 
-Los archivos en `bd/` se ejecutan en orden lexicográfico:
+Los archivos en `bd/` se ejecutan en el orden especificado según la estructura de carpetas:
 
 1. `00_DROP-Tables.sql` limpia cualquier tabla previa respetando dependencias.
 2. `01_DDL-*.sql` a `09_DDL-*.sql` definen la estructura.
